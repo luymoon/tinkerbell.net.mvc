@@ -1,0 +1,59 @@
+﻿[
+  {
+    "Nome": "Animal",
+    "Cor": "#983C1D"
+  },
+  {
+    "Nome": "Artesã",
+    "Cor": "#299C3A"
+  },
+  {
+    "Nome": "Água",
+    "Cor": "#66CCD6"
+  },
+  {
+    "Nome": "Guardiã",
+    "Cor": "#DAB471"
+  },
+  {
+    "Nome": "Humano",
+    "Cor": "#6275EF"
+  },
+  {
+    "Nome": "Jardinagem",
+    "Cor": "#F03A6E"
+  },
+  {
+    "Nome": "Luz",
+    "Cor": "#F0D45B"
+  },
+  {
+    "Nome": "Ministro",
+    "Cor": "#EF6B5A"
+  },
+  {
+    "Nome": "Mixologia",
+    "Cor": "#CC36F0"
+  },
+  {
+    "Nome": "Neve",
+    "Cor": "#CFDCEF"
+  },
+  {
+    "Nome": "Pet",
+    "Cor": "#AAF0C9"
+  },
+  {
+    "Nome": "Rainha",
+    "Cor": "#63985E"
+    
+  },
+  {
+    "Nome": "Rei",
+    "Cor": "#67A2C0"
+  },
+  {
+    "Nome": "Vento",
+    "Cor": "#753DF0"
+  }
+]
