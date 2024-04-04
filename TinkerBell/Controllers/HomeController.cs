@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using TinkerBell.Models;
 
@@ -15,7 +16,13 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+       List<Fada> fadas = [];
+       using (StreamReader leitor = new("Data\\fadas.json"))
+       {
+        string dados = leitor.ReadToEnd();
+        fadas = JsonSerializer.Deserialize<List<Fada>>(dados);
+       }
+       return View(fadas);
     }
 
     public IActionResult Privacy()
