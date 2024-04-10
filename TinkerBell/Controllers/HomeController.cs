@@ -16,13 +16,41 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-       List<Fada> fadas = [];
-       using (StreamReader leitor = new("Data\\fadas.json"))
-       {
-        string dados = leitor.ReadToEnd();
-        fadas = JsonSerializer.Deserialize<List<Fada>>(dados);
-       }
+       List<Fada> fadas = GetFadas();
+       List<Tipo> tipos = GetTipos();
+       ViewData["Tipos"] = tipos;
        return View(fadas);
+    }
+
+    public IActionResult Details(int id)
+    {
+       List<Fada> fadas = GetFadas();
+       List<Tipo> tipos = GetTipos();
+        DetailsVM details = new() {
+            Tipos = tipos,
+            Atual = fadas.FirstOrDefault(p => p.Numero == id),
+            Anterior = fadas.OrderByDescending(p => p.Numero).FirstOrDefault(p => p.Numero < id),
+            Proximo = fadas.OrderBy(p => p.Numero).FirstOrDefault(p => p.Numero > id),
+        };
+        return View(details);
+    }
+
+    private List<Fada> GetFadas()
+    {
+        using (StreamReader leitor = new("Data\\fadas.json"))
+        {
+            string dados = leitor.ReadToEnd();
+            return JsonSerializer.Deserialize<List<Fada>>(dados);
+        }
+    }
+
+    private List<Tipo> GetTipos()
+    {
+        using (StreamReader leitor = new("Data\\tipos.json"))
+        {
+            string dados = leitor.ReadToEnd();
+            return JsonSerializer.Deserialize<List<Tipo>>(dados);
+        }
     }
 
     public IActionResult Privacy()
